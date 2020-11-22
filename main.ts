@@ -1,14 +1,14 @@
 control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MES_DPAD_BUTTON_A_DOWN, function () {
-    basic.showIcon(IconNames.Yes)
+    if (billencs == 0) {
+        basic.showIcon(IconNames.Heart)
+    }
+    billencs = 1
 })
 control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MES_DPAD_BUTTON_A_UP, function () {
-    basic.showIcon(IconNames.No)
-    basic.pause(100)
-    basic.showLeds(`
-        . . . . .
-        . . . . .
-        . . . . .
-        . . . . .
-        . . . . .
-        `)
+    if (billencs == 1) {
+        basic.showIcon(IconNames.Happy)
+    }
+    billencs = 0
 })
+let billencs = 0
+billencs = 0
